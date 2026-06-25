@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-str = "Python is an interpreted, interactive, object-oriented programming language. It mixes ideas from Modula-3, C, and it is often compared to Java. It supports multiple programming paradigms beyond object-oriented programming, such as procedural and functional programming. Python combines remarkable power with very clear syntax."
-print(str[39:66] + str[302:308] + str[0:6])
-
+# Build a sentence using string slicing
+# Output: object-oriented programming with Python
+str = "Python programming is fun. object-oriented programming with classes"
+print(str[27:54] + str[54:60] + str[0:6])
