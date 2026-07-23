@@ -8,9 +8,19 @@ Import MyList:
 
     >>> MyList = __import__('1-my_list').MyList
 
-Test with append and print_sorted:
+Check MyList inherits from list:
+
+    >>> issubclass(MyList, list)
+    True
+
+Check instantiation:
 
     >>> my_list = MyList()
+    >>> isinstance(my_list, MyList)
+    True
+
+Check append:
+
     >>> my_list.append(1)
     >>> my_list.append(4)
     >>> my_list.append(2)
@@ -18,12 +28,18 @@ Test with append and print_sorted:
     >>> my_list.append(5)
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+Check print_sorted with sorted append:
+
     >>> my_list.print_sorted()
     [1, 2, 3, 4, 5]
+
+Check the original list is not sorted (print_sorted doesn't modify it):
+
     >>> print(my_list)
     [1, 4, 2, 3, 5]
 
-Test print_sorted with an already sorted list:
+Check print_sorted with an already sorted list:
 
     >>> sorted_list = MyList()
     >>> sorted_list.append(1)
@@ -32,7 +48,7 @@ Test print_sorted with an already sorted list:
     >>> sorted_list.print_sorted()
     [1, 2, 3]
 
-Test print_sorted with negative numbers:
+Check print_sorted with negative numbers:
 
     >>> neg_list = MyList()
     >>> neg_list.append(-1)
@@ -42,18 +58,25 @@ Test print_sorted with negative numbers:
     >>> neg_list.print_sorted()
     [-5, -1, 0, 3]
 
-Test print_sorted with an empty list:
+Check print_sorted with an empty list:
 
     >>> empty_list = MyList()
     >>> empty_list.print_sorted()
     []
 
-Test that print_sorted returns None (only prints):
+Check print_sorted returns None (only prints):
 
     >>> empty_list.print_sorted() is None
+    []
     True
 
-Test that MyList is a subclass of list:
+Check print_sorted returns a new list (original untouched):
 
-    >>> issubclass(MyList, list)
+    >>> mixed = MyList()
+    >>> mixed.append(9)
+    >>> mixed.append(1)
+    >>> before = list(mixed)
+    >>> mixed.print_sorted()
+    [1, 9]
+    >>> list(mixed) == before
     True

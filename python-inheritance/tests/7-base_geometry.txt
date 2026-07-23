@@ -34,11 +34,7 @@ Missing arguments:
     Traceback (most recent call last):
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-Invalid type - string:
-
-    >>> bg.integer_validator("name", "John")
-    Traceback (most recent call last):
-    TypeError: name must be an integer
+Invalid type - integer as string:
 
     >>> bg.integer_validator("age", "4")
     Traceback (most recent call last):
@@ -59,6 +55,12 @@ Invalid type - list:
 Invalid type - bool:
 
     >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid type - set:
+
+    >>> bg.integer_validator("age", {3, 4})
     Traceback (most recent call last):
     TypeError: age must be an integer
 
