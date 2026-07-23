@@ -8,7 +8,7 @@ Import MyList:
 
     >>> MyList = __import__('1-my_list').MyList
 
-Create an instance and test print_sorted:
+Test with append and print_sorted:
 
     >>> my_list = MyList()
     >>> my_list.append(1)
@@ -22,3 +22,38 @@ Create an instance and test print_sorted:
     [1, 2, 3, 4, 5]
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+Test print_sorted with an already sorted list:
+
+    >>> sorted_list = MyList()
+    >>> sorted_list.append(1)
+    >>> sorted_list.append(2)
+    >>> sorted_list.append(3)
+    >>> sorted_list.print_sorted()
+    [1, 2, 3]
+
+Test print_sorted with negative numbers:
+
+    >>> neg_list = MyList()
+    >>> neg_list.append(-1)
+    >>> neg_list.append(-5)
+    >>> neg_list.append(3)
+    >>> neg_list.append(0)
+    >>> neg_list.print_sorted()
+    [-5, -1, 0, 3]
+
+Test print_sorted with an empty list:
+
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
+
+Test that print_sorted returns None (only prints):
+
+    >>> empty_list.print_sorted() is None
+    True
+
+Test that MyList is a subclass of list:
+
+    >>> issubclass(MyList, list)
+    True

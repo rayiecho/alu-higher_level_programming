@@ -1,32 +1,92 @@
 The ``7-base_geometry`` module
 ===============================
 
-Using integer_validator
-------------------------
+Using area()
+------------
 
 Import BaseGeometry:
 
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
+area() always raises an Exception:
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+Using integer_validator
+------------------------
+
 Valid cases:
 
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
+    >>> bg.integer_validator("age", 1)
 
-Invalid type:
+Missing arguments:
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    >>> bg.integer_validator("age")
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Invalid type - string:
 
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
     TypeError: name must be an integer
 
-Invalid value (zero):
+    >>> bg.integer_validator("age", "4")
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid type - tuple:
+
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid type - list:
+
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid type - bool:
+
+    >>> bg.integer_validator("age", True)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid type - dict:
+
+    >>> bg.integer_validator("age", {3: 4})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid type - None:
+
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid type - float:
+
+    >>> bg.integer_validator("age", 13.5)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Invalid value - zero:
 
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
     ValueError: age must be greater than 0
 
-Invalid value (negative):
+Invalid value - negative:
 
     >>> bg.integer_validator("distance", -4)
     Traceback (most recent call last):
