@@ -7,3 +7,4 @@ REVOKE FIREWALL_EXEMPT ON *.* FROM 'user_0d_1'@'localhost';
 REVOKE GROUP_REPLICATION_STREAM ON *.* FROM 'user_0d_1'@'localhost';
 REVOKE PASSWORDLESS_USER_ADMIN ON *.* FROM 'user_0d_1'@'localhost';
 REVOKE SENSITIVE_VARIABLES_OBSERVER ON *.* FROM 'user_0d_1'@'localhost';
+REVOKE TELEMETRY_LOG_ADMIN ON *.* FROM 'user_0d_1'@'localhost';
