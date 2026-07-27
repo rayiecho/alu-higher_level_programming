@@ -27,7 +27,9 @@ class Student:
         Returns:
             dict: The (optionally filtered) dictionary representation.
         """
-        if isinstance(attrs, list) and all(isinstance(a, str)
-                                            for a in attrs):
+        is_valid = isinstance(attrs, list)
+        if is_valid:
+            is_valid = all(isinstance(a, str) for a in attrs)
+        if is_valid:
             return {k: v for k, v in self.__dict__.items() if k in attrs}
         return self.__dict__
