@@ -36,12 +36,12 @@ class TestRectangle(unittest.TestCase):
     def test_width_type_error(self):
         """Test width raises TypeError on non-integer."""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle(10, "2")
+            Rectangle("10", 2)
 
     def test_height_type_error(self):
         """Test height raises TypeError on non-integer."""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle("10", 2)
+            Rectangle(10, "2")
 
     def test_width_value_error(self):
         """Test width raises ValueError when <= 0."""
@@ -81,7 +81,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_update_kwargs(self):
         """Test update with keyword arguments."""
-        r = Rectangle(10, 10, 10, 10)
+        r = Rectangle(10, 10, 10, 10, 1)
         r.update(x=1, height=2, y=3, width=4)
         self.assertEqual(str(r), "[Rectangle] (1) 1/3 - 4/2")
 
